@@ -1,0 +1,28 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Sabor</th>
+      <th scope="col">Descripcion</th>
+      <th scope="col">IQ</th>
+      <th scope="col">Imagen</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let cerebro of cerebros | async; let i = index">
+      <th scope="row">{{i+1}}</th>
+      <td>{{cerebro.flavor}}</td>
+      <td>{{cerebro.descripcion}}</td>
+      <td>{{cerebro.iq}}</td>
+      <td>{{cerebro.picture}}</td>
+      <td>
+        <button (click)="guardarDatos(cerebro._id,cerebro.flavor,cerebro.iq,cerebro.descripcion,cerebro.picture)" type="button" class="btn mr-2 mb-2 btn-primary" data-toggle="modal" data-target="#modalActualizarCerebro">Editar Cerebro <i class="fas fa-edit" title="Editar"></i></button>
+        <button (click)="guardarID(cerebro._id)" type="button" class="btn mr-2 mb-2 btn-danger" data-toggle="modal" data-target="#modalEliminarCerebro">Eliminar Cerebro <i class="fas fa-trash" title="Editar"></i></button>
+    </td>
+    </tr>
+</table>
+
+
+<button type="button" class="btn mr-2 mb-2 btn-primary" data-toggle="modal" data-target="#modalCerebro">
+  Agregar Cerebro
+</button>
